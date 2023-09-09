@@ -4,6 +4,7 @@ plugins {
     id("kotlin-kapt")
     //id("com.google.devtools.ksp")
     id("dagger.hilt.android.plugin")
+    id("kotlin-parcelize")
 
 }
 
@@ -90,4 +91,6 @@ dependencies {
 
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.11")
+
+    implementation("com.google.code.gson:gson:2.10.1")
 }

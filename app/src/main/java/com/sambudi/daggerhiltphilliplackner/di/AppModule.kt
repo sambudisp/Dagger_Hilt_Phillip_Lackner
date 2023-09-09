@@ -28,24 +28,10 @@ object AppModule {
     @Provides
     @Singleton
     fun provideMyRepository(
-        api: MyApi,
-        applicationContext: Application,
-        @Named("hello1") hello: String
+        api: MyApi
     ): MyRepository {
-        return MyRepositoryImpl(api, applicationContext)
+        return MyRepositoryImpl(api)
     }
-
-    @Provides
-    @Singleton
-    @Named("hello1")
-    // jika ada function yg returnnya sama, kita tambahin @Named untuk ngasih tau dagger-hilt bahwa yang kita inginkan adalah Function yg ini, bukan yang lain. Cara pemanggilannya ada di contoh provideMyRepository
-    // karena jika tanpa @Named dagger-hilt akan bingung harus manggil yang mana, kalau tidak ada yang sama baru deh tanpa @Named gpp kayak si provideMyRepository
-    fun provideStringLangsung1() = "Helloww 1"
-
-    @Provides
-    @Singleton
-    @Named("hello2")
-    fun provideStringLangsung2() = "Helloww 2"
 }
 
 /*
