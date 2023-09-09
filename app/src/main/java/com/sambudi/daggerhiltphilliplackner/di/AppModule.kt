@@ -25,7 +25,7 @@ object AppModule {
             .create(MyApi::class.java)
     }
 
-    @Provides
+    /*@Provides
     @Singleton
     fun provideMyRepository(
         api: MyApi,
@@ -33,7 +33,7 @@ object AppModule {
         @Named("hello1") hello: String
     ): MyRepository {
         return MyRepositoryImpl(api, applicationContext)
-    }
+    }*/
 
     @Provides
     @Singleton
