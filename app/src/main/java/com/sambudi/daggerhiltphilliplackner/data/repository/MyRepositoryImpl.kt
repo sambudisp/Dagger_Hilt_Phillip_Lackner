@@ -16,7 +16,7 @@ class MyRepositoryImpl(
     }
 
     override suspend fun doNetworkCall() {
-
+        api.doNetworkCall()
     }
 
 }

@@ -10,4 +10,6 @@ class MyViewModel @Inject constructor(
     private val repository: MyRepository
 ) : ViewModel() {
 
+
+    suspend fun hitMyApi() = repository.doNetworkCall()
 }
