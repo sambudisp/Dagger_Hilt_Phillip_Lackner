@@ -1,7 +1,5 @@
 package com.sambudi.daggerhiltphilliplackner.data.repository
 
-import android.app.Application
-import com.sambudi.daggerhiltphilliplackner.R
 import com.sambudi.daggerhiltphilliplackner.data.model.MyResponseModel
 import com.sambudi.daggerhiltphilliplackner.data.remote.MyApi
 import com.sambudi.daggerhiltphilliplackner.domain.repository.MyRepository
@@ -17,7 +15,12 @@ class MyRepositoryImpl(
     }
 
     override suspend fun doNetworkCallWithFlow(): Flow<List<MyResponseModel>> = flow {
-        emit(api.doNetworkCallWithFlow())
+        //emit(api.doNetworkCallWithFlow())
+        val list = mutableListOf<MyResponseModel>()
+        list.add(MyResponseModel(cek = "cek 1"))
+        list.add(MyResponseModel(cek = "cek 2"))
+        list.add(MyResponseModel(cek = "cek 3"))
+        emit(list)
     }
 
 }

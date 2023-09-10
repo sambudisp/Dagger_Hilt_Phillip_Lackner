@@ -8,6 +8,7 @@ import com.sambudi.daggerhiltphilliplackner.data.model.MyResponseModel
 import com.sambudi.daggerhiltphilliplackner.domain.repository.MyRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.launch
@@ -20,11 +21,12 @@ class MyViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _result = MutableLiveData<Resource<List<MyResponseModel>>>()
-    val result: MutableLiveData<Resource<List<MyResponseModel>>> = _result
+    val result: MutableLiveData<Resource<List<MyResponseModel>>>
+        get() = _result
 
     suspend fun hitMyApi() = repository.doNetworkCall()
 
-    suspend fun hitMyApiWithFlow() {
+    fun hitMyApiWithFlow() {
         viewModelScope.launch {
             _result.value = Resource.loading()
             repository.doNetworkCallWithFlow()
